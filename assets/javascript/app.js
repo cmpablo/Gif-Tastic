@@ -14,7 +14,7 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       console.log(queryURL);
-      console.log(response);
+      console.log(response.data);
 
       var results = response.data;
 
@@ -22,10 +22,25 @@ $(document).ready(function() {
         var topicsDiv = $("<div class='topic-gifs'>");
         var pRating = $("<p>").text("Rating: " + results[i].rating);
         var topicImage = $("<img>");
-        topicImage.attr("src", results[i].images.fixed_height.url);
+        topicImage.attr("id", "gif");
+        topicImage.attr("src", results[i].images.fixed_height_still.url);
         topicsDiv.append(pRating);
         topicsDiv.append(topicImage);
         $("#faveThings").prepend(topicsDiv);
+
+        $("#gif").on("click", function() {
+          var t = $(this);
+          var dataStill = topicImage.attr("src", results[i].images.fixed_height_still.url);
+          var dataAnimate = topicImage.attr("src", results[i].images.fixed_height.url);
+          
+          if (t === dataStill) {
+            t.attr("src", t.attr("dataAnimate"));
+          } else {
+            t.attr("src", t.attr("dataStill"));
+          }
+
+          console.log("hiiiii");
+        });
       }
     });
   }
@@ -42,12 +57,12 @@ $(document).ready(function() {
     }
   }
 
- $("#add-topic").on("click", function(event){
-     event.preventDefault();
-     var newTopic = $("#newTopic-input").val().trim();
-     topics.push(newTopic);
-     renderButtons()
- });
+  $("#add-topic").on("click", function(event) {
+    event.preventDefault();
+    var newTopic = $("#newTopic-input").val().trim();
+    topics.push(newTopic);
+    renderButtons();
+  });
 
   // click event listener to all topics with a class of "topics-btn"
   $(document).on("click", ".topics-btn", displayDesignInfo);

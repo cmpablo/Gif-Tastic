@@ -1,3 +1,10 @@
-/* body {
-    background-color: #000;
-} */
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.topics-btn,
+input {
+  border: none;
+  color: #000;
+}
