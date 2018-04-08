@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Favorite Things GIF-Tastic </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
@@ -16,26 +17,37 @@
     <div class="container">
 
         <div class="row">
-            <div id="faveThingsBtns"></div>
+            <div class="page-header">
+                <h3>These are a Few of</h3>
+                <h1>My Favorite Things
+                </h1>
+            </div>
         </div>
 
         <div class="row">
-
-            <div class="col-md-8">
-                <div id="faveThings"></div>
+            <div class="col-md-9">
+                <div id="faveThingsBtns"></div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <form id="addToSearch">
                     <label for="newTopic-input">Add a new topic</label>
-                    <input type="text" id="newTopic-input">
                     <br>
-
+                    <input type="text" id="newTopic-input" placeholder="Add to search here...">
+                    <br>
+                    <br>
                     <!-- Button triggers new movie to be added -->
                     <input id="add-topic" type="submit" value="Submit">
                 </form>
             </div>
 
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div id="faveThings"></div>
+            </div>
+            <div class="col-md-3"></div>
         </div>
 
     </div>

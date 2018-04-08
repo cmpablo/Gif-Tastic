@@ -2,6 +2,7 @@ $(document).ready(function() {
   var topics = ["design", "animation", "2D animation", "typography", "fashion"];
 
   function displayDesignInfo() {
+    $("#faveThings").empty();
     var topic = $(this).attr("data-name");
 
     var queryURL =
@@ -12,9 +13,10 @@ $(document).ready(function() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
-      console.log(queryURL);
-      console.log(response.data);
+    })
+    .then(function(response) {
+      //console.log(queryURL);
+     // console.log(response.data);
 
       var results = response.data;
 
@@ -22,28 +24,34 @@ $(document).ready(function() {
         var topicsDiv = $("<div class='topic-gifs'>");
         var pRating = $("<p>").text("Rating: " + results[i].rating);
         var topicImage = $("<img>");
-        topicImage.attr("id", "gif");
+
+        // adding class + attributes to gifs for still and animated states
+        topicImage.addClass("topicsGif");
         topicImage.attr("src", results[i].images.fixed_height_still.url);
+        topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+        topicImage.attr("data-animate", results[i].images.fixed_height.url);
+        topicImage.attr("data-state", "still");
         topicsDiv.append(pRating);
         topicsDiv.append(topicImage);
         $("#faveThings").prepend(topicsDiv);
+        }
 
-        $("#gif").on("click", function() {
-          var t = $(this);
-          var dataStill = topicImage.attr("src", results[i].images.fixed_height_still.url);
-          var dataAnimate = topicImage.attr("src", results[i].images.fixed_height.url);
-          
-          if (t === dataStill) {
-            t.attr("src", t.attr("dataAnimate"));
-          } else {
-            t.attr("src", t.attr("dataStill"));
-          }
-
-          console.log("hiiiii");
-        });
-      }
+        $(".topicsGif").on("click", function() {
+            var _this = $(this);
+            var state = $(this).attr("data-state");
+  
+            if (state === "still") {
+              _this.attr("src", _this.attr("data-animate"));
+              _this.attr("data-state", "animate");
+              //console.log("I'm playing");
+            } else {
+              _this.attr("src", _this.attr("data-still"));
+              _this.attr("data-state", "still");
+              //console.log("I'm still");
+            }
+          })
     });
-  }
+    }
 
   function renderButtons() {
     $("#faveThingsBtns").empty();
@@ -59,13 +67,18 @@ $(document).ready(function() {
 
   $("#add-topic").on("click", function(event) {
     event.preventDefault();
-    var newTopic = $("#newTopic-input").val().trim();
+    var newTopic = $("#newTopic-input")
+      .val()
+      .trim();
     topics.push(newTopic);
     renderButtons();
   });
 
   // click event listener to all topics with a class of "topics-btn"
   $(document).on("click", ".topics-btn", displayDesignInfo);
+
+  // click event listener to pause/play gifs
+  //$(document).on("click", ".topicsGif", pausePlayGifs);
 
   // run functions
   renderButtons();
