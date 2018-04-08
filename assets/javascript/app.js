@@ -2,14 +2,13 @@ $(document).ready(function() {
   var topics = ["design", "animation", "2D animation", "typography", "fashion"];
 
   function displayDesignInfo() {
-    // data-name property value
     var topic = $(this).attr("data-name");
 
-    // constructing queryURL
     var queryURL =
-      "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Y4gpTF8rQaLXaJNISgOysEW6fvtC4QAc&limit=10";
+      "https://api.giphy.com/v1/gifs/search?q=" +
+      topic +
+      "&api_key=Y4gpTF8rQaLXaJNISgOysEW6fvtC4QAc&limit=10";
 
-    // performing AJAX request
     $.ajax({
       url: queryURL,
       method: "GET"
@@ -19,10 +18,10 @@ $(document).ready(function() {
 
       var results = response.data;
 
-      for (let i = 0; i < topics.length; i++) {
-        var topicsDiv = $("<div class='topic-gifs'>"); // div to hold gifs
-        var pRating = $("<p>").text("Rating: " + results[i].rating); // holds result item's rating
-        var topicImage = $("<img>"); // image tag
+      for (let i = 0; i < results.length; i++) {
+        var topicsDiv = $("<div class='topic-gifs'>");
+        var pRating = $("<p>").text("Rating: " + results[i].rating);
+        var topicImage = $("<img>");
         topicImage.attr("src", results[i].images.fixed_height.url);
         topicsDiv.append(pRating);
         topicsDiv.append(topicImage);
@@ -32,23 +31,23 @@ $(document).ready(function() {
   }
 
   function renderButtons() {
-    // deleting favorite things prior to adding more favorite things
     $("#faveThingsBtns").empty();
-    
-    // looping through array of topics
+
     for (var i = 0; i < topics.length; i++) {
-      var b = $("<button>"); // dynamically generating buttons for each topic
-      b.addClass("topics-btn"); // adding a class to the button
-      b.attr("data-name", topics[i]); // adding data-attribute
-      b.text(topics[i]); // button text
-      $("#faveThingsBtns").append(b); // adding buttons to div
+      var b = $("<button>");
+      b.addClass("topics-btn");
+      b.attr("data-name", topics[i]);
+      b.text(topics[i]);
+      $("#faveThingsBtns").append(b);
     }
   }
 
-    
-
-
-  // add JS here for form click event
+ $("#add-topic").on("click", function(event){
+     event.preventDefault();
+     var newTopic = $("#newTopic-input").val().trim();
+     topics.push(newTopic);
+     renderButtons()
+ });
 
   // click event listener to all topics with a class of "topics-btn"
   $(document).on("click", ".topics-btn", displayDesignInfo);
