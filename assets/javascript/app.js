@@ -1,6 +1,16 @@
 $(document).ready(function() {
-  var topics = ["design", "animation", "2D animation", "typography", "fashion", "architecture", "interior design"];
+  // array of topics
+  var topics = [
+    "design",
+    "animation",
+    "2D animation",
+    "typography",
+    "fashion",
+    "architecture",
+    "interior design"
+  ];
 
+  // function to request and display data
   function displayDesignInfo() {
     $("#faveThings").empty();
     var topic = $(this).attr("data-name");
@@ -13,13 +23,10 @@ $(document).ready(function() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    })
-    .then(function(response) {
-      //console.log(queryURL);
-     // console.log(response.data);
-
+    }).then(function(response) {
       var results = response.data;
 
+      // loop to pull ratings data and images for topics array
       for (let i = 0; i < results.length; i++) {
         var topicsDiv = $("<div class='topic-gifs'>");
         var pRating = $("<p>").text("Rating: " + results[i].rating);
@@ -34,25 +41,25 @@ $(document).ready(function() {
         topicsDiv.append(pRating);
         topicsDiv.append(topicImage);
         $("#faveThings").prepend(topicsDiv);
+      }
+
+      // event to play/pause gifs
+      $(".topicsGif").on("click", function() {
+        var _this = $(this);
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+          _this.attr("src", _this.attr("data-animate"));
+          _this.attr("data-state", "animate");
+        } else {
+          _this.attr("src", _this.attr("data-still"));
+          _this.attr("data-state", "still");
         }
-
-        $(".topicsGif").on("click", function() {
-            var _this = $(this);
-            var state = $(this).attr("data-state");
-  
-            if (state === "still") {
-              _this.attr("src", _this.attr("data-animate"));
-              _this.attr("data-state", "animate");
-              //console.log("I'm playing");
-            } else {
-              _this.attr("src", _this.attr("data-still"));
-              _this.attr("data-state", "still");
-              //console.log("I'm still");
-            }
-          })
+      });
     });
-    }
+  }
 
+  // creating buttons dynamically
   function renderButtons() {
     $("#faveThingsBtns").empty();
 
@@ -65,6 +72,7 @@ $(document).ready(function() {
     }
   }
 
+  // clearing submit input and adding new topic button
   $("#add-topic").on("click", function(event) {
     event.preventDefault();
     var newTopic = $("#newTopic-input")
