@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var topics = ["design", "animation", "2D animation", "typography", "fashion"];
+  var topics = ["design", "animation", "2D animation", "typography", "fashion", "architecture", "interior design"];
 
   function displayDesignInfo() {
     $("#faveThings").empty();
@@ -76,9 +76,6 @@ $(document).ready(function() {
 
   // click event listener to all topics with a class of "topics-btn"
   $(document).on("click", ".topics-btn", displayDesignInfo);
-
-  // click event listener to pause/play gifs
-  //$(document).on("click", ".topicsGif", pausePlayGifs);
 
   // run functions
   renderButtons();
