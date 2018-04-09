@@ -1,4 +1,4 @@
-##My Favorite Things in GIFs
+## My Favorite Things in GIFs
 
 **WHAT IS THIS PROJECT? WHAT DOES IT DO?**
 
