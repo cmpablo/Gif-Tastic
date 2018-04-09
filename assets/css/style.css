@@ -2,21 +2,86 @@ body {
   background-color: #000;
   background-image: url("../images/bg_img.png");
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 
-.topics-btn,
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.page-header,
+label,
+p {
+  font-family: "Dokdo", cursive;
+}
+
+.page-header h3,
+h1 {
+  background-color: rgb(255, 252, 80);
+  color: #000;
+}
+
+.page-header h3 {
+  width: 250px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 43px;
+  width: 430px;
+  padding: 0px 0px 0px 15px;
+  margin: 10px 0px 15px 0px;
+}
+
+label {
+  background-color: rgb(255, 252, 80);
+  color: #000;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin: 0px 0px 10px 0px;
+  width: 175px;
+}
+
+#main-buttons {
+  padding: 0px;
+}
+
+#topics-btn,
 input {
   border: none;
   color: #000;
 }
 
-.topics-btn {
-    margin: 5px;
+#newTopic-input {
+  width: 200px;
+  height: 30px;
+  font-size: 12px;
+  padding: 0px 0px 0px 10px;
+  color: rgb(228, 228, 228);
 }
 
-.gif img {
-    max-width: 100%;
-    float: left;
-    overflow: hidden;
+#topics-btn,
+#add-topic-btn {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 0px;
+  text-transform: uppercase;
+}
+
+#add-topic-btn {
+  margin: -20px 0px 0px 0px;
+  padding: 10px 20px;
+}
+
+p {
+  width: 100px;
+  padding: 0px 0px 0px 10px;
+  margin: 25px 0px 10px 0px;
+  text-transform: uppercase;
+  background-color: rgb(255, 252, 80);
+  color: #000;
 }

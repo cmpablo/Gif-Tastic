@@ -7,7 +7,11 @@ $(document).ready(function() {
     "typography",
     "fashion",
     "architecture",
-    "interior design"
+    "food design",
+    "interior design",
+    "cars",
+    "dogs",
+    "music"
   ];
 
   // function to request and display data
@@ -65,7 +69,8 @@ $(document).ready(function() {
 
     for (var i = 0; i < topics.length; i++) {
       var b = $("<button>");
-      b.addClass("topics-btn");
+      b.addClass("btn btn-default");
+      b.attr("id", "topics-btn");
       b.attr("data-name", topics[i]);
       b.text(topics[i]);
       $("#faveThingsBtns").append(b);
@@ -82,8 +87,8 @@ $(document).ready(function() {
     renderButtons();
   });
 
-  // click event listener to all topics with a class of "topics-btn"
-  $(document).on("click", ".topics-btn", displayDesignInfo);
+  // click event listener to all topics with an id of "topics-btn"
+  $(document).on("click", "#topics-btn", displayDesignInfo);
 
   // run functions
   renderButtons();

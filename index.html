@@ -7,6 +7,9 @@
     <title>My Favorite Things in GIFs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
@@ -18,26 +21,26 @@
 
         <div class="row">
             <div class="page-header">
-                <h3>These Are a Few of</h3>
-                <h1>My Favorite Things
+                <h3>THESE ARE A FEW OF</h3>
+                <h1>MY FAVORITE THINGS
                 </h1>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9" id="main-buttons">
                 <div id="faveThingsBtns"></div>
             </div>
 
             <div class="col-md-3">
                 <form id="addToSearch">
-                    <label for="newTopic-input">Add a new topic</label>
+                    <label for="newTopic-input">What's your favorite thing?</label>
                     <br>
-                    <input type="text" id="newTopic-input" placeholder="add to search here...">
+                    <input type="text" id="newTopic-input" placeholder=" search here...">
                     <br>
                     <br>
                     <!-- Button triggers new movie to be added -->
-                    <input id="add-topic" type="submit" value="Submit">
+                    <input id="add-topic-btn" type="submit" value="Submit >">
                 </form>
             </div>
 
@@ -48,14 +51,14 @@
                 <div id="faveThings"></div>
             </div>
             <div class="col-md-3"></div>
+
         </div>
 
-    </div>
 
-
-    <!-- JAVASCRIPT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
+        <!-- JAVASCRIPT -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+        <script src="assets/javascript/app.js"></script>
 
 </body>
 
