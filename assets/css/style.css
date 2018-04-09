@@ -3,7 +3,7 @@ body {
   background-image: url("../images/bg_img.png");
   color: #fff;
   font-family: "Poppins", sans-serif;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 .container {
@@ -12,8 +12,7 @@ body {
 }
 
 .page-header,
-label,
-p {
+label {
   font-family: "Dokdo", cursive;
 }
 
@@ -61,7 +60,7 @@ input {
   height: 30px;
   font-size: 12px;
   padding: 0px 0px 0px 10px;
-  color: rgb(228, 228, 228);
+  color: rgb(131, 131, 131);
 }
 
 #topics-btn,
@@ -78,10 +77,24 @@ input {
 }
 
 p {
-  width: 100px;
-  padding: 0px 0px 0px 10px;
-  margin: 25px 0px 10px 0px;
-  text-transform: uppercase;
-  background-color: rgb(255, 252, 80);
-  color: #000;
+  margin: 25px 0px 0px 0px;
+  color: rgb(255, 255, 255);
+}
+
+#faveThings {
+  /* Prevent vertical gaps */
+  /* line-height: 0; */
+
+  -webkit-column-count: 2;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 2;
+  -moz-column-gap: 0px;
+  column-count: 2;
+  column-gap: 0px;
+}
+
+#faveThings img {
+  /* Just in case there are inline attributes */
+  width: 90%;
+  height: auto;
 }

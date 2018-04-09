@@ -33,7 +33,7 @@ $(document).ready(function() {
       // loop to pull ratings data and images for topics array
       for (let i = 0; i < results.length; i++) {
         var topicsDiv = $("<div class='topic-gifs'>");
-        var pRating = $("<p>").text("Rating: " + results[i].rating);
+        var pRating = $("<p>").text("RATING: " + results[i].rating);
         var topicImage = $("<img>");
 
         // adding class + attributes to gifs for still and animated states
@@ -66,7 +66,7 @@ $(document).ready(function() {
   // creating buttons dynamically
   function renderButtons() {
     $("#faveThingsBtns").empty();
-
+    
     for (var i = 0; i < topics.length; i++) {
       var b = $("<button>");
       b.addClass("btn btn-default");
@@ -78,7 +78,7 @@ $(document).ready(function() {
   }
 
   // clearing submit input and adding new topic button
-  $("#add-topic").on("click", function(event) {
+  $("#add-topic-btn").on("click", function(event) {
     event.preventDefault();
     var newTopic = $("#newTopic-input")
       .val()
