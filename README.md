@@ -6,6 +6,8 @@ My Favorite Things in GIFs is a dynamic web page utilizing the GIPHY API to popu
 
 Users can populate gifs with the buttons on the page or customize their experience by adding their own search buttons. GIFs populate as a still and can be played and paused.
 
+Content is responsive for medium and small devices.
+
 **WHO WILL USE THIS?**
 
 Anyone who enjoys GIFs and/or wants to create dynamic content thru this simple, pleasing-to-the-eye website.

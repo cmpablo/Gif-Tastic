@@ -5,10 +5,10 @@ $(document).ready(function() {
     "animation",
     "2D animation",
     "typography",
-    "fashion",
     "architecture",
-    "food design",
+    "fashion",
     "interior design",
+    "food",
     "cars",
     "dogs",
     "music"

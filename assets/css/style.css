@@ -11,6 +11,10 @@ body {
   margin: 0 auto;
 }
 
+#fave-container {
+  margin: 30px 0px;
+}
+
 .page-header,
 label {
   font-family: "Dokdo", cursive;
@@ -49,6 +53,10 @@ label {
   padding: 0px;
 }
 
+#search-container {
+  margin: 5px 0px;
+}
+
 #topics-btn,
 input {
   border: none;
@@ -56,7 +64,7 @@ input {
 }
 
 #newTopic-input {
-  width: 200px;
+  width: 170px;
   height: 30px;
   font-size: 12px;
   padding: 0px 0px 0px 10px;
@@ -82,15 +90,58 @@ p {
 }
 
 #faveThings {
-  -webkit-column-count: 2;
+  -webkit-column-count: 3;
   -webkit-column-gap: 0px;
-  -moz-column-count: 2;
+  -moz-column-count: 3;
   -moz-column-gap: 0px;
-  column-count: 2;
+  column-count: 3;
   column-gap: 0px;
 }
 
 #faveThings img {
   width: 90%;
   height: auto;
+}
+
+/* MEDIA QUERIES */
+
+/* medium devices */
+@media screen and (max-width: 992px) {
+  #faveThings {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+
+  #fave-container {
+    margin: 0px;
+    padding: 5px;
+  }
+
+  #search-container {
+    margin: 20px 0px;
+    padding: 5px;
+  }
+}
+
+/* small devices */
+@media screen and (max-width: 768px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  #faveThings {
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+  }
+
+  #fave-container {
+    margin: 0px;
+    padding: 5px;
+  }
+
+  #search-container {
+    margin: 20px 0px;
+  }
 }
